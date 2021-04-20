@@ -1,37 +1,37 @@
-let person = {
+// Deel 1 - Objecten
+
+const person = {
     name: 'Samantha',
     age: 32,
     evaluations: [7, 10, 9]
 }
 
 console.log(person); // het hele object tonen
+console.log(person.name); // Dot notation | Alleen de naam tonen
+console.log(person.age); // Dot notation | Alleen de leeftijd tonen
+console.log(person['name']); // Bracket notation | Alleen de naam tonen 
+console.log(person['age']); // Bracket notation | Alleen de leeftijd tonen 
+console.log(person.evaluations); // [ 7, 10, 9 ]
 
-// Dot notation | Alleen de naam tonen
-person.name = 'Samantha';
-console.log(person.name); 
+// Deel 2 - Arrays
 
-// Bracket notation | Alleen de leeftijd tonen 
-person['age'] = 32;
-console.log(person.age);
+const colors = ['wit', 'beige', 'bruin'];
+console.log(colors); // de items tonen = [ 'wit', 'beige', 'bruin' ]
+console.log(colors.length); // lengte van de array / hoeveelheid items = 3
+console.log(colors[0]); // de eerste kleur tonen = wit
+console.log(colors[2]); // de laatste kleur tonen = bruin
+console.log(colors[colors.length-1]); // de laatste kleur tonen = bruin
 
-console.log(person.evaluations);
+colors.push('zwart'); // extra kleur toevoegen aan items
+console.log(colors); // de items tonen = [ 'wit', 'beige', 'bruin', 'zwart' ]
 
-let colors = ['wit', 'beige', 'bruin'];
-console.log(colors); // de items tonen
-console.log(colors.length); // lengte van de array / hoeveelheid items
-console.log(colors[0]); // de eerste kleur tonen
-console.log(colors[2]); // de laatste kleur tonen
+colors.push(5); // getal toevoegen aan items
+console.log(colors); // de items tonen = [ 'wit', 'beige', 'bruin', 'zwart', 5 ]
 
-let moreColors = colors.push('zwart'); // extra kleur toevoegen aan items
-console.log(colors); // de items tonen
+colors.push({greeting: "hi ik ben een object"});
+console.log(colors[colors.length - 1].greeting); // het laatste item tonen = hi ik ben een object
 
-colors[4] = 5; // getal toevoegen aan items
-console.log(colors); // de items tonen
-
-let greeting = colors.push({greeting: "hi ik ben een object"});
-console.log(colors[5]); // het laatste item tonen
-
-// Deel 3: Bekijk een "real-life" object
+// Deel 3 - Bekijk een "real-life" object
 
 const catBreeds = [{
     name: "Abyssinian",
@@ -82,6 +82,10 @@ const catBreeds = [{
 
 console.log("Laatste kattenras:", catBreeds[2].name);
 console.log("Energy level van de 1e kat:", catBreeds[0].energy_level);
-console.log("Het 1e temperament van de temperamenten van de 2e kat:", catBreeds[1].temperament[0]);
-console.log("Het laatst temperament van de temperamenten van de 3e kat:", catBreeds[2].temperament[4]);
+console.log("Het 1e temperament van de 2e kat:", catBreeds[1].temperament[0]);
+
+console.log("Het laatste temperament van de 3e kat:", catBreeds[2].temperament[4]);
+const lastTemperamentCatThree = catBreeds[2].temperament.length;
+console.log("Het laatste temperament van de 3e kat:", catBreeds[2].temperament[lastTemperamentCatThree - 1]);
+
 console.log("Het favoriete voedsel van de 3e kat:", catBreeds[2].food.favourite_food);
